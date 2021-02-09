@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import fs from 'fs';
+import { test, expect } from '@jest/globals';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
-import { test, expect } from '@jest/globals';
 // eslint-disable-next-line import/extensions
 import diffGen from '../index.js';
 
@@ -14,9 +14,9 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 
 const resultJSON = readFile('plainJSON.txt');
 
-const plain1jsonpath = getFixturePath('file1.json');
-const plain2jsonpath = getFixturePath('file2.json');
+const file1Path = getFixturePath('file1.json');
+const file2Path = getFixturePath('file2.json');
 
 test('plain', () => {
-  expect(diffGen(plain1jsonpath, plain2jsonpath)).toEqual(resultJSON);
+  expect(diffGen(file1Path, file2Path)).toEqual(resultJSON);
 });
