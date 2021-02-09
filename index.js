@@ -2,9 +2,14 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable quotes */
 /* eslint-disable quote-props */
+import fs from 'fs';
 import _ from 'lodash';
 
-const diffGen = (obj1, obj2) => {
+const diffGen = (filepath1, filepath2) => {
+  const file1 = fs.readFileSync(filepath1);
+  const obj1 = JSON.parse(file1);
+  const file2 = fs.readFileSync(filepath2);
+  const obj2 = JSON.parse(file2);
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
   const allKeys = _.union(keys1, keys2).sort();
