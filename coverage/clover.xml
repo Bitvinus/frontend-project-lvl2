@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1612976794236" clover="3.2.0">
-  <project timestamp="1612976794236" name="All files">
+<coverage generated="1612979094076" clover="3.2.0">
+  <project timestamp="1612979094076" name="All files">
     <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2" elements="30" coveredelements="30" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
     <file name="index.js" path="/home/dzen/project2/frontend-project-lvl2/index.js">
       <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
