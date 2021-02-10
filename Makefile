@@ -11,4 +11,4 @@ test:
 test-win:
 	npx jest
 test-coverage:
-	npm test -- --coverage --coverageProvider=v8
+	npx -n --experimental-vm-modules jest --coverage
