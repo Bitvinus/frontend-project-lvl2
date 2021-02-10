@@ -1,24 +1,12 @@
-install: install-deps
-
-gendiff:
-	node src/bin/gendiff.js
-
-run:
-	bin/nodejs-package.js
-
-install-deps:
-	npm ci
-
-test:
-	npm test
-
-test-coverage:
-	npm test -- --coverage --coverageProvider=v8
-
+install:
+	npm install
+publish:
+	npm publish --dry-run
 lint:
 	npx eslint .
-
-publish:
-	npm publish
-
-.PHONY: test
+lintFix:
+	npx eslint . --fix
+test:
+	npx -n --experimental-vm-modules jest --watch
+test-win:
+	npx jest

@@ -8,7 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "npx jest"
+    "test": "npx -n --experimental-vm-modules --no-warnings jest --colors"
   },
   "jest": {
     "verbose": true,
