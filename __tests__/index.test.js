@@ -12,11 +12,16 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-const resultJSON = readFile('plainJSON.txt');
+const resultJSON = readFile('expected_result.txt');
+const resultYaml = readFile('expected_result.txt');
 
-const file1Path = getFixturePath('file1.json');
-const file2Path = getFixturePath('file2.json');
-
-test('plain', () => {
-  expect(diffGen(file1Path, file2Path)).toEqual(resultJSON);
+test('plain json files', () => {
+  const file1JSON = getFixturePath('file1.json');
+  const file2JSON = getFixturePath('file2.json');
+  expect(diffGen(file1JSON, file2JSON)).toEqual(resultJSON);
+});
+test('plain yaml files', () => {
+  const file1Yaml = getFixturePath('file1.yaml');
+  const file2Yaml = getFixturePath('file2.yaml');
+  expect(diffGen(file1Yaml, file2Yaml)).toEqual(resultYaml);
 });

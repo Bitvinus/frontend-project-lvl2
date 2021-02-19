@@ -1,20 +1,16 @@
-/* eslint-disable no-shadow */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable quotes */
-/* eslint-disable quote-props */
-import fs from 'fs';
+/* eslint-disable import/extensions */
 import _ from 'lodash';
+import parse from './parser.js';
 
 const diffGen = (filepath1, filepath2) => {
-  const file1 = fs.readFileSync(filepath1);
-  const obj1 = JSON.parse(file1);
-  const file2 = fs.readFileSync(filepath2);
-  const obj2 = JSON.parse(file2);
+  const obj1 = parse(filepath1);
+  const obj2 = parse(filepath2);
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
   const allKeys = _.union(keys1, keys2).sort();
   const result = {};
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const key of allKeys) {
     if (!keys1.includes(key)) {
       result[`  + ${key}`] = obj2[key];
